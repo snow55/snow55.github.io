@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite-url/R/R-data-process/</loc>
+    <lastmod>2022-09-14</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/R/ggplot2-%E7%94%BB%E5%9B%BE%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2022-09-13</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite-url/en/Hexo-Theme-LiveMyLife/</loc>
     <lastmod>2020-04-16</lastmod>
   </url>

@@ -244,6 +244,28 @@
 
           
           
+          <li>
+            <a href="/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
+              
+              
+            </a>
+          </li>
+          
           
           
           <li>
@@ -261,28 +283,6 @@
             <a href="/categories/">
               
               CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/tags/">
-              
-              TAGS
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/about/">
-              
-              ABOUT
               
               
             </a>
@@ -408,7 +408,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">2k</span> In Total
+              Words <span class="post-count">1.9k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -486,8 +486,7 @@
 </li>
 <li><p>Log-rank test to compare the survival curves of two or more groups（通过比较两组或者多组之间的的生存曲线，一般是生存率及其标准误，从而研究之间的差异，一般用log rank检验）</p>
 </li>
-<li><p>Cox proportional hazards regression to describe the effect of variables on survival（用Cox风险比例模型来分析变量对生存的影响，可以两个及两个以上的因素，很常用）</p>
-</li>
+<li>Cox proportional hazards regression to describe the effect of variables on survival（用Cox风险比例模型来分析变量对生存的影响，可以两个及两个以上的因素，很常用）</li>
 </ul>
 <p>所以一般做生存分析，可以用KM（Kaplan-Meier）方法估计生存率，做生存曲线，然后可以根据分组检验一下多组间生存曲线是否有显著的差异，最后用Cox风险比例模型来研究下某个因素对生存的影响</p>
 <h2 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h2><ul>
@@ -516,21 +515,19 @@
 </ol>
 <p>而生存曲线（survival curve）则是将每个时间点的生存率连接在一起的曲线，一般随访时间为X轴，生存率为Y轴；曲线平滑则说明高生存率，反之则低生存率；中位生存率（median survival time）越长，则说明预后较好</p>
 <p>简单看下Kaplan-Meier方法是怎么计算的：</p>
-<p>S(ti)&#x3D;S(ti−1)(1−di&#x2F;ni)</p>
+<p>S(ti)=S(ti−1)(1−di/ni)</p>
 <blockquote>
 <ol>
 <li>S(ti−1)指在ti−1年还存活的概率</li>
 <li>ni指在在ti年之前还存活的人数</li>
 <li>di指在事件发生的人数</li>
-<li>t0&#x3D;0，S(0)&#x3D;1</li>
+<li>t0=0，S(0)=1</li>
 </ol>
 </blockquote>
 <h2 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h2><h3 id="单变量生存曲线分析"><a href="#单变量生存曲线分析" class="headerlink" title="单变量生存曲线分析"></a>单变量生存曲线分析</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>survival<span class="punctuation">)</span></span><br><span class="line">library<span class="punctuation">(</span>survminer<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">colnames<span class="punctuation">(</span>cancer<span class="punctuation">)</span><span class="comment">#cancer为survival包中自带的数据，可直接调用</span></span><br><span class="line">head<span class="punctuation">(</span>cancer<span class="punctuation">)</span></span><br><span class="line">sfit1<span class="operator">=</span>survfit<span class="punctuation">(</span>Surv<span class="punctuation">(</span>time<span class="punctuation">,</span> status<span class="punctuation">)</span> <span class="operator">~</span> sex<span class="punctuation">,</span>  data<span class="operator">=</span>cancer<span class="punctuation">)</span></span><br><span class="line">summary<span class="punctuation">(</span>sfit1<span class="punctuation">)</span></span><br><span class="line">ggsurvplot<span class="punctuation">(</span>sfit1<span class="punctuation">,</span>surv.median.line <span class="operator">=</span> <span class="string">&quot;hv&quot;</span><span class="punctuation">,</span>font.legend<span class="operator">=</span><span class="number">12</span><span class="punctuation">,</span></span><br><span class="line">           palette <span class="operator">=</span> <span class="string">&quot;lancet&quot;</span><span class="punctuation">,</span></span><br><span class="line">           xlab<span class="operator">=</span><span class="string">&#x27;Time (days)&#x27;</span><span class="punctuation">,</span></span><br><span class="line">           legend.title <span class="operator">=</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">,</span></span><br><span class="line">           legend <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.9</span><span class="punctuation">,</span> <span class="number">0.8</span><span class="punctuation">)</span><span class="punctuation">,</span><span class="comment">#&#x27;right&#x27;,</span></span><br><span class="line">           legend.labs<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&#x27;female&#x27;</span><span class="punctuation">,</span><span class="string">&#x27;male&#x27;</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="comment">#标签</span></span><br><span class="line">           ylab<span class="operator">=</span><span class="string">&quot;Overall survival (%)&quot;</span><span class="punctuation">,</span></span><br><span class="line">           pval <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span> <span class="comment">#添加p value</span></span><br><span class="line">           pval.coord <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span> <span class="number">0.1</span><span class="punctuation">)</span><span class="punctuation">,</span>    </span><br><span class="line">           pval.method<span class="operator">=</span><span class="literal">TRUE</span><span class="punctuation">,</span><span class="comment">#添加比较方法</span></span><br><span class="line">           pval.method.size<span class="operator">=</span><span class="number">5</span><span class="punctuation">,</span></span><br><span class="line">           pval.method.coord<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span><span class="number">0.2</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">           conf.int <span class="operator">=</span> <span class="built_in">T</span><span class="punctuation">,</span> <span class="comment">#添加95%置信区间</span></span><br><span class="line">           pval.size <span class="operator">=</span> <span class="number">5</span><span class="punctuation">,</span> tables.theme <span class="operator">=</span> theme_cleantable<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span><span class="comment">#使用主题自定义情节和风险表</span></span><br><span class="line">           risk.table <span class="operator">=</span> <span class="built_in">T</span><span class="punctuation">,</span> </span><br><span class="line">           table.height <span class="operator">=</span> <span class="number">0.25</span><span class="punctuation">,</span><span class="comment">#指定风险表的高度</span></span><br><span class="line">           censor.shape<span class="operator">=</span><span class="number">124</span><span class="punctuation">,</span></span><br><span class="line">           censor.size<span class="operator">=</span><span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">           risk.table.col <span class="operator">=</span> <span class="string">&quot;strata&quot;</span><span class="punctuation">,</span> <span class="comment">#按组更改风险表颜色</span></span><br><span class="line">           risk.table.y.text.col <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span> <span class="comment">#颜色风险表文本注释（按层）</span></span><br><span class="line">           risk.table.y.text <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">,</span> <span class="comment">#在风险表图例中的文本注释中显示条形而不是名称</span></span><br><span class="line">           fontsize<span class="operator">=</span><span class="number">4</span><span class="punctuation">,</span><span class="comment">#风险表字体</span></span><br><span class="line">           break.x.by<span class="operator">=</span><span class="number">200</span><span class="comment">#x轴刻度的间距.例如12月一个刻度</span></span><br><span class="line">           <span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">  labs<span class="punctuation">(</span>title <span class="operator">=</span> <span class="literal">NULL</span><span class="punctuation">)</span><span class="comment">#去掉risk table的标题</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生存曲线的多重比较</span></span><br><span class="line">restest <span class="operator">&lt;-</span> pairwise_survdiff<span class="punctuation">(</span>Surv<span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span>OS.time<span class="operator">/</span><span class="number">30</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span> OS<span class="punctuation">)</span><span class="operator">~</span>group<span class="punctuation">,</span> data<span class="operator">=</span>dataUse<span class="punctuation">)</span></span><br><span class="line">restest</span><br><span class="line"></span><br><span class="line"><span class="comment">#cox回归</span></span><br><span class="line">res.cox <span class="operator">&lt;-</span> coxph<span class="punctuation">(</span>Surv<span class="punctuation">(</span><span class="built_in">round</span><span class="punctuation">(</span>OS.time<span class="operator">/</span><span class="number">30</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span> OS<span class="punctuation">)</span><span class="operator">~</span>group<span class="punctuation">,</span> data <span class="operator">=</span> dataUse<span class="punctuation">)</span></span><br><span class="line">res.cox</span><br><span class="line">summary<span class="punctuation">(</span>res.cox<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="image-20221020211227451.png" alt="image-20221020211227451"></p>
+<p><img src="Survival-curve/image-20221020211227451.png" alt="image-20221020211227451"></p>
 <h3 id="按某变量画分面生存曲线"><a href="#按某变量画分面生存曲线" class="headerlink" title="按某变量画分面生存曲线"></a>按某变量画分面生存曲线</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">library(survival)</span><br><span class="line">library(survminer)</span><br><span class="line"></span><br><span class="line">colnames(cancer)</span><br><span class="line"><span class="built_in">head</span>(cancer)</span><br><span class="line">sfit1=survfit(Surv(time, status) ~ ph.ecog,  data=cancer)</span><br><span class="line">summary(sfit1)</span><br><span class="line">ggsurvplot(sfit1,</span><br><span class="line">           surv.median.line = <span class="string">&quot;hv&quot;</span>,</span><br><span class="line">           palette = <span class="string">&quot;lancet&quot;</span>,<span class="comment">#c(&#x27;#ED0000&#x27;,&#x27;#00468B&#x27;),</span></span><br><span class="line">           xlab=<span class="string">&#x27;Time (days)&#x27;</span>,</span><br><span class="line">           legend.title = <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">           ylab=<span class="string">&quot;Overall survival (%)&quot;</span>,</span><br><span class="line">           legend = c(0.9,0.8),<span class="comment">#&#x27;right&#x27;,</span></span><br><span class="line">           legend.labs=c(<span class="string">&#x27;0&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>), <span class="comment">#标签</span></span><br><span class="line">           font.legend=12,</span><br><span class="line">           pval = TRUE, <span class="comment">#添加p value</span></span><br><span class="line">           pval.coord = c(0, 0.1),    </span><br><span class="line">           pval.size = 5, </span><br><span class="line">           <span class="comment"># pval.method=TRUE,#添加比较方法</span></span><br><span class="line">           <span class="comment"># pval.method.size=5,</span></span><br><span class="line">           <span class="comment"># pval.method.coord=c(0,0.1),</span></span><br><span class="line">           <span class="comment"># conf.int = T, </span></span><br><span class="line">           facet.by = <span class="string">&#x27;sex&#x27;</span>,<span class="comment">#按某个变量分组</span></span><br><span class="line">           nrow = 1, ncol = 2,</span><br><span class="line">           <span class="comment"># panel.labs = list(adhere = c(&quot;No&quot;, &quot;YES&quot;)),</span></span><br><span class="line">           panel.labs.background = list(color = <span class="string">&quot;black&quot;</span>, fill = <span class="string">&quot;white&quot;</span>),</span><br><span class="line">           panel.labs.font = list(face = <span class="string">&quot;plain&quot;</span>, color = <span class="string">&quot;black&quot;</span>, size = 14),</span><br><span class="line">           tables.theme = theme_cleantable(),<span class="comment">#使用主题自定义情节和风险表</span></span><br><span class="line">           risk.table = T, </span><br><span class="line">           table.height = 0.25,<span class="comment">#指定风险表的高度</span></span><br><span class="line">           censor.shape=124,</span><br><span class="line">           censor.size=2,</span><br><span class="line">           risk.table.col = <span class="string">&quot;strata&quot;</span>, <span class="comment">#按组更改风险表颜色</span></span><br><span class="line">           risk.table.y.text.col = TRUE, <span class="comment">#颜色风险表文本注释（按层）</span></span><br><span class="line">           risk.table.y.text = FALSE, <span class="comment">#在风险表图例中的文本注释中显示条形而不是名称</span></span><br><span class="line">           <span class="comment"># risk.table.title=&#x27;&#x27;, #指定risk table的标题</span></span><br><span class="line">           fontsize=4,<span class="comment">#风险表字体</span></span><br><span class="line">           break.x.by=200 <span class="comment">#x轴刻度的间距.例如12月一个刻度</span></span><br><span class="line">           )+</span><br><span class="line">  labs(title = NULL)<span class="comment">#去掉risk table的标题</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="image-20221020205937681.png" alt="image-20221020205937681"></p>
+<p><img src="Survival-curve/image-20221020205937681.png" alt="image-20221020205937681"></p>
 <p><a target="_blank" rel="noopener" href="https://rpkgs.datanovia.com/survminer/reference/ggsurvplot.html">Drawing Survival Curves Using ggplot2 — ggsurvplot • survminer (datanovia.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45822007/article/details/115302654">R绘图| Kaplan-Meier曲线及美化_木舟笔记的博客-CSDN博客</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.findmyfun.cn/drawing-group-survival-curve-with-r-language.html">R语言绘制分组生存曲线 - FindMyFUN</a></p>
@@ -542,7 +539,7 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/undefined/Hexo-image-insert/" data-toggle="tooltip" data-placement="top" title="Hexo image insert">&larr; Previous Post</a>
+            <a href="/Hexo/Hexo-image-insert/" data-toggle="tooltip" data-placement="top" title="Hexo image insert">&larr; Previous Post</a>
           </li>
           
           
@@ -1275,20 +1272,5 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+	</body>
 </html>

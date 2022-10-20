@@ -244,16 +244,16 @@
 
           
           
+          
+          
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
           </li>
-          
-          
           
           
           
@@ -269,9 +269,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/about/">
               
-              CATEGORIES
+              ABOUT
               
               
             </a>
@@ -408,7 +408,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">396</span> In Total
+              Words <span class="post-count">424</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -473,24 +473,38 @@
         <h1 id="Hexo-image-insert"><a href="#Hexo-image-insert" class="headerlink" title="Hexo image insert"></a>Hexo image insert</h1><blockquote>
 <p>为了在本地Typora和发布的网页中能同时显示图片，需对Typora和hexo进行相应的设置。</p>
 </blockquote>
-<p>在使用<code>hexo new post &#39;article title&#39;</code> 生成新的博客时，可同时生成对应名字的文件夹可用于存放图片或视频等。</p>
+<p>在使用<code> hexo new post &#39;article title&#39;</code> 生成新的博客时，可同时生成对应名字的文件夹可用于存放图片或视频等。</p>
 <p>在md文件中插入图片的语法为<code>![]()</code>，其中<strong>方括号</strong>是图片描述，<strong>圆括号</strong>是图片路径。</p>
-<h2 id="Typora-设置"><a href="#Typora-设置" class="headerlink" title="Typora 设置"></a>Typora 设置</h2><p>文件 —&gt; 偏好设置，选择 “复制到指定路径” ，并勾选以下3个选项，不同版本typora的设置可能稍有不同。</p>
-<p><img src="Hexo-image-insert/image-20221020125434714.png" alt="image-20221020125434714"></p>
+<h2 id="Typora-设置"><a href="#Typora-设置" class="headerlink" title="Typora 设置"></a>Typora 设置</h2><p>文件 –&gt; 偏好设置，选择 “复制到指定路径” ，并勾选以下3个选项，不同版本typora的设置可能稍有不同。</p>
+<p><img src="image-20221020125434714.png" alt="image-20221020125434714"></p>
 <p>使用该配置后，可以直接复制网页中的图片地址，粘贴到Typora中后，会直接复制该图片到文章资源文件夹，同时自动更改路径。</p>
 <p>如复制网络路径的图片<code>https://...../image.png</code>粘贴到Typora中叫<code>文章名</code>的文章后，图片会自动变为<code>![文章名](文章名/image.png)</code>。</p>
 <p>注意：无需在Typora中设置图像的根目录</p>
+<p><img src="image-20221020223839656.png" alt="image-20221020223839656"></p>
+<p><img src="_posts" alt="image-20221020125434714"></p>
 <h2 id="Hexo-设置"><a href="#Hexo-设置" class="headerlink" title="Hexo 设置"></a>Hexo 设置</h2><p>首先下载<code>hexo-renderer-marked</code>包</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-marked --save</span><br></pre></td></tr></table></figure>
+
 <p>其次，修改<code>hexo</code>下的<code>_config.yml</code>文件，将<code>post_asset_folder</code>设为<code>true</code>，并增加相应命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br><span class="line">marked:</span><br><span class="line">  prependRoot: <span class="literal">true</span> </span><br><span class="line">  postAsset: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>最后，再在<code>hexo</code>下的<code>node_modules/hexo-renderer-marked/lib/renderer.js</code>文件中，增加以下命令</p>
+
+<p>再次，在<code>hexo</code>下的<code>node_modules/hexo-renderer-marked/lib/renderer.js</code>文件中，增加以下命令</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Prepend root to image path</span></span><br><span class="line"><span class="title function_">image</span>(<span class="params">href, title, text</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; hexo, options &#125; = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">const</span> &#123; relative_link &#125; = hexo.<span class="property">config</span>;</span><br><span class="line">  <span class="keyword">const</span> &#123; lazyload, prependRoot, postPath &#125; = options;</span><br><span class="line">  <span class="comment">//以上命令基本都有，最重要是增加下面这行命令，用以解析所粘贴的图片的路径</span></span><br><span class="line">  <span class="keyword">if</span> (href.<span class="title function_">indexOf</span>(<span class="string">&#x27;/&#x27;</span>)&gt;-<span class="number">1</span>)&#123;</span><br><span class="line">    href = href.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>)[<span class="number">1</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后，在<code>Hexo/scanffolds</code>的<code>post.md</code>中增加以下命令，以设置typora的根目录(为Hexo&#x2F;source)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typora-root-url: ..\..</span><br></pre></td></tr></table></figure>
+
+
+
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
+          
+          <li class="previous">
+            <a href="/Literature/TLS-summary/" data-toggle="tooltip" data-placement="top" title="TLS summary">&larr; Previous Post</a>
+          </li>
           
           
           <li class="next">
@@ -1222,5 +1236,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>

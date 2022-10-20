@@ -244,16 +244,16 @@
 
           
           
+          
+          
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
           </li>
-          
-          
           
           
           
@@ -269,9 +269,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/about/">
               
-              CATEGORIES
+              ABOUT
               
               
             </a>
@@ -461,37 +461,21 @@
       <!-- 标签云 -->
       <div id='tag_cloud' class="tags">
         
-        <a href="#Hexo" title="Hexo" rel="1">Hexo</a>
-        
         <a href="#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="2">Hexo-Theme-LiveMyLife</a>
+        
+        <a href="#Hexo" title="Hexo" rel="1">Hexo</a>
         
         <a href="#R" title="R" rel="3">R</a>
         
         <a href="#ggplot2" title="ggplot2" rel="1">ggplot2</a>
         
+        <a href="#Review" title="Review" rel="1">Review</a>
+        
+        <a href="#Literature" title="Literature" rel="1">Literature</a>
+        
       </div>
 
       <!-- 标签列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="Hexo">
-          <span class="tag-text">Hexo</span>
-        </span>
-        
-        <div class="post-preview">
-          <a href="/Hexo/Hexo-image-insert/">
-            <h2 class="post-title">
-              Hexo image insert
-              
-              -- Hexo
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-      </div>
       
       <div class="one-tag-list">
         <span class="fa fa-tag listing-seperator" id="Hexo-Theme-LiveMyLife">
@@ -533,6 +517,26 @@
       </div>
       
       <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="Hexo">
+          <span class="tag-text">Hexo</span>
+        </span>
+        
+        <div class="post-preview">
+          <a href="/Hexo/Hexo-image-insert/">
+            <h2 class="post-title">
+              Hexo image insert
+              
+              -- Hexo
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+      </div>
+      
+      <div class="one-tag-list">
         <span class="fa fa-tag listing-seperator" id="R">
           <span class="tag-text">R</span>
         </span>
@@ -541,19 +545,6 @@
           <a href="/R/R-data-process/">
             <h2 class="post-title">
               R data process
-              
-              -- R
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/R/ggplot2-tips/">
-            <h2 class="post-title">
-              ggplot2 tips
               
               -- R
               
@@ -576,6 +567,19 @@
         </div>
         <hr>
         
+        <div class="post-preview">
+          <a href="/R/ggplot2-tips/">
+            <h2 class="post-title">
+              ggplot2 tips
+              
+              -- R
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
       </div>
       
       <div class="one-tag-list">
@@ -589,6 +593,46 @@
               ggplot2 tips
               
               -- R
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+      </div>
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="Review">
+          <span class="tag-text">Review</span>
+        </span>
+        
+        <div class="post-preview">
+          <a href="/Literature/TLS-summary/">
+            <h2 class="post-title">
+              TLS summary
+              
+              -- Literature
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+      </div>
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="Literature">
+          <span class="tag-text">Literature</span>
+        </span>
+        
+        <div class="post-preview">
+          <a href="/Literature/TLS-summary/">
+            <h2 class="post-title">
+              TLS summary
+              
+              -- Literature
               
             </h2>
             
@@ -1088,5 +1132,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>

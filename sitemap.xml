@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite-url/Literature/TLS-summary/</loc>
+    
+    <lastmod>2022-10-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/Hexo/Hexo-image-insert/</loc>
     
     <lastmod>2022-10-20</lastmod>
@@ -88,14 +95,14 @@
 
   
   <url>
-    <loc>http://yoursite-url/tags/Hexo/</loc>
+    <loc>http://yoursite-url/tags/Hexo-Theme-LiveMyLife/</loc>
     <lastmod>2022-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/Hexo-Theme-LiveMyLife/</loc>
+    <loc>http://yoursite-url/tags/Hexo/</loc>
     <lastmod>2022-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -115,6 +122,20 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>http://yoursite-url/tags/Review/</loc>
+    <lastmod>2022-10-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/Literature/</loc>
+    <lastmod>2022-10-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -126,6 +147,13 @@
   
   <url>
     <loc>http://yoursite-url/categories/R/</loc>
+    <lastmod>2022-10-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/categories/Literature/</loc>
     <lastmod>2022-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

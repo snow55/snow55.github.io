@@ -244,16 +244,16 @@
 
           
           
+          
+          
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
           </li>
-          
-          
           
           
           
@@ -269,9 +269,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/about/">
               
-              CATEGORIES
+              ABOUT
               
               
             </a>
@@ -490,7 +490,7 @@
 <p>Hexo-Theme-LiveMyLife：<a target="_blank" rel="noopener" href="https://v-vincen.life/en/Hexo-Theme-LiveMyLife">https://v-vincen.life/en/Hexo-Theme-LiveMyLife</a><br>Making new Hexo blog： <a target="_blank" rel="noopener" href="https://www.yshawlon.cn/1.html#toc-heading-3">https://www.yshawlon.cn/1.html#toc-heading-3</a></p>
 </blockquote>
 <h2 id="Contact-me"><a href="#Contact-me" class="headerlink" title="Contact me"></a>Contact me</h2><blockquote>
-<p>Email：375990842@qq.com</p>
+<p>Email：<a href="mailto:&#x33;&#x37;&#53;&#x39;&#57;&#48;&#56;&#x34;&#50;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#x6d;">&#x33;&#x37;&#53;&#x39;&#57;&#48;&#56;&#x34;&#50;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#x6d;</a></p>
 </blockquote>
 <h2 id="Treat-me-to-coffee"><a href="#Treat-me-to-coffee" class="headerlink" title="Treat me to coffee"></a>Treat me to coffee</h2><blockquote>
 <p> If you feel that what I have written is of some value to you, I am glad that you are willing to invite me to drink coffee…</p>
@@ -539,11 +539,11 @@
   <div class="tags">
     
     
-    <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
-    
-    
-    
     <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="2">Hexo-Theme-LiveMyLife</a>
+    
+    
+    
+    <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
     
     
     
@@ -552,6 +552,14 @@
     
     
     <a href="/tags/#ggplot2" title="ggplot2" rel="1">ggplot2</a>
+    
+    
+    
+    <a href="/tags/#Review" title="Review" rel="1">Review</a>
+    
+    
+    
+    <a href="/tags/#Literature" title="Literature" rel="1">Literature</a>
     
     
   </div>
@@ -623,6 +631,10 @@
 <div class="widget">
   <ul>
     
+    <a href="../Literature/TLS-summary/">
+      <li>TLS summary</li>
+    </a>
+    
     <a href="../Hexo/Hexo-image-insert/">
       <li>Hexo image insert</li>
     </a>
@@ -637,10 +649,6 @@
     
     <a href="../R/ggplot2-tips/">
       <li>ggplot2 tips</li>
-    </a>
-    
-    <a href="../cn/Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
     </a>
     
   </ul>
@@ -671,7 +679,7 @@
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/10/">October 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/10/">October 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li></ul>
 </div>
 
 
@@ -689,6 +697,10 @@
     
     <a href="/categories/#R">
       <li>R</li>
+    </a>
+    
+    <a href="/categories/#Literature">
+      <li>Literature</li>
     </a>
     
   </ul>
@@ -1189,5 +1201,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>

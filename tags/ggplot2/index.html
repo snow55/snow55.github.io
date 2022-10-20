@@ -244,10 +244,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
@@ -255,12 +257,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/about/">
               
-              CATEGORIES
+              ABOUT
               
               
             </a>
@@ -486,9 +486,9 @@
           <li>
             10-20
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/hexo-image-insert/" style="color: #0085a1">
+            <a href="/undefined/Hexo-image-insert/" style="color: #0085a1">
               <span>
-                hexo image insert
+                Hexo image insert
                 
                 -- undefined
                 
@@ -525,9 +525,9 @@
           <li>
             09-13
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/R/ggplot2-画图技巧/" style="color: #0085a1">
+            <a href="/R/ggplot2-tips/" style="color: #0085a1">
               <span>
-                ggplot2 画图技巧
+                ggplot2 tips
                 
                 -- R
                 
@@ -616,6 +616,10 @@
     
     
     
+    <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
+    
+    
+    
     <a href="/tags/#ggplot2" title="ggplot2" rel="1">ggplot2</a>
     
     
@@ -692,8 +696,8 @@
 <div class="widget">
   <ul>
     
-    <a href="../../undefined/hexo-image-insert/">
-      <li>hexo image insert</li>
+    <a href="../../undefined/Hexo-image-insert/">
+      <li>Hexo image insert</li>
     </a>
     
     <a href="../../R/Survival-curve/">
@@ -704,8 +708,8 @@
       <li>R data process</li>
     </a>
     
-    <a href="../../R/ggplot2-%E7%94%BB%E5%9B%BE%E6%8A%80%E5%B7%A7/">
-      <li>ggplot2 画图技巧</li>
+    <a href="../../R/ggplot2-tips/">
+      <li>ggplot2 tips</li>
     </a>
     
     <a href="../../en/Hexo-Theme-LiveMyLife/">
@@ -756,8 +760,8 @@
       <li>R</li>
     </a>
     
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
+    <a href="/categories/#Hexo">
+      <li>Hexo</li>
     </a>
     
   </ul>
@@ -1258,5 +1262,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>

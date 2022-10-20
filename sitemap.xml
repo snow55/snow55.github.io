@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite-url/undefined/hexo-image-insert/</loc>
+    <loc>http://yoursite-url/undefined/Hexo-image-insert/</loc>
     
     <lastmod>2022-10-20</lastmod>
     
@@ -37,7 +37,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/R/ggplot2-%E7%94%BB%E5%9B%BE%E6%8A%80%E5%B7%A7/</loc>
+    <loc>http://yoursite-url/R/ggplot2-tips/</loc>
     
     <lastmod>2022-09-13</lastmod>
     
@@ -95,6 +95,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite-url/tags/Hexo/</loc>
+    <lastmod>2022-10-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/tags/ggplot2/</loc>
     <lastmod>2022-10-20</lastmod>
     <changefreq>daily</changefreq>
@@ -118,7 +125,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/Hexo-Theme-LiveMyLife/</loc>
+    <loc>http://yoursite-url/categories/Hexo/</loc>
     <lastmod>2022-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

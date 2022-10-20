@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/archives/2022/09/">
+  <link rel="canonical" href="http://yoursite-url/undefined/hexo-image-insert/">
   <title>
     
-      SnowBlog
+      hexo image insert - SnowBlog
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -300,29 +300,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="archives/2022/09/index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-      <option value="cn" >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -384,9 +362,9 @@
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/img/header_img/archive_bg2.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url(''); */
       
     }
 
@@ -408,10 +386,40 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>SnowBlog</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">Keep going. Everything you need will come to you at a perfect time.</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+            </div>
+            <h1>hexo image insert</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by snow on
+              2022-10-20
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">1</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">396</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -452,326 +460,282 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h1 id="Hexo-image-insert"><a href="#Hexo-image-insert" class="headerlink" title="Hexo image insert"></a>Hexo image insert</h1><blockquote>
+<p>为了在本地Typora和发布的网页中能同时显示图片，需对Typora和hexo进行相应的设置。</p>
+</blockquote>
+<p>在使用<code> hexo new post &#39;article title&#39;</code> 生成新的博客时，可同时生成对应名字的文件夹可用于存放图片或视频等。</p>
+<p>在md文件中插入图片的语法为<code>![]()</code>，其中<strong>方括号</strong>是图片描述，<strong>圆括号</strong>是图片路径。</p>
+<h2 id="Typora-设置"><a href="#Typora-设置" class="headerlink" title="Typora 设置"></a>Typora 设置</h2><p>文件 –&gt; 偏好设置，选择 “复制到指定路径” ，并勾选以下3个选项，不同版本typora的设置可能稍有不同。</p>
+<p><img src="image-20221020125434714.png" alt="image-20221020125434714"></p>
+<p>使用该配置后，可以直接复制网页中的图片地址，粘贴到Typora中后，会直接复制该图片到文章资源文件夹，同时自动更改路径。</p>
+<p>如复制网络路径的图片<code>https://...../image.png</code>粘贴到Typora中叫<code>文章名</code>的文章后，图片会自动变为<code>![文章名](文章名/image.png)</code>。</p>
+<p>注意：无需在Typora中设置图像的根目录</p>
+<h2 id="Hexo-设置"><a href="#Hexo-设置" class="headerlink" title="Hexo 设置"></a>Hexo 设置</h2><p>首先下载<code>hexo-renderer-marked</code>包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-marked --save</span><br></pre></td></tr></table></figure>
+
+<p>其次，修改<code>hexo</code>下的<code>_config.yml</code>文件，将<code>post_asset_folder</code>设为<code>true</code>，并增加相应命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br><span class="line">marked:</span><br><span class="line">  prependRoot: <span class="literal">true</span> </span><br><span class="line">  postAsset: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>最后，再在<code>hexo</code>下的<code>node_modules/hexo-renderer-marked/lib/renderer.js</code>文件中，增加以下命令</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Prepend root to image path</span></span><br><span class="line"><span class="title function_">image</span>(<span class="params">href, title, text</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; hexo, options &#125; = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">const</span> &#123; relative_link &#125; = hexo.<span class="property">config</span>;</span><br><span class="line">  <span class="keyword">const</span> &#123; lazyload, prependRoot, postPath &#125; = options;</span><br><span class="line">  <span class="comment">//以上命令基本都有，最重要是增加下面这行命令，用以解析所粘贴的图片的路径</span></span><br><span class="line">  <span class="keyword">if</span> (href.<span class="title function_">indexOf</span>(<span class="string">&#x27;/&#x27;</span>)&gt;-<span class="number">1</span>)&#123;</span><br><span class="line">    href = href.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>)[<span class="number">1</span>];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/R/Survival-curve/" data-toggle="tooltip" data-placement="top" title="Survival curve">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=hexo image insert&body=Hi,I found this website and thought you might like it http://yoursite-url/undefined/hexo-image-insert/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Thu Oct 20 2022 12:02:45 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Hexo-image-insert"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Hexo image insert</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Typora-%E8%AE%BE%E7%BD%AE"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Typora 设置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Hexo-%E8%AE%BE%E7%BD%AE"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Hexo 设置</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
     
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
+
+
+      <!-- Sidebar Container -->
+      <div class="
                 col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
-
-      
-
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-          <span class="tag-text">2022</span>
-        </span>
-        <ul>
-          
-          <li>
-            10-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/hexo-image-insert/" style="color: #0085a1">
-              <span>
-                hexo image insert
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            10-19
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/R/Survival-curve/" style="color: #0085a1">
-              <span>
-                Survival curve
-                
-                -- R
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            09-14
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/R/R-data-process/" style="color: #0085a1">
-              <span>
-                R data process
-                
-                -- R
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            09-13
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/R/ggplot2-画图技巧/" style="color: #0085a1">
-              <span>
-                ggplot2 画图技巧
-                
-                -- R
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2020">
-          <span class="tag-text">2020</span>
-        </span>
-        <ul>
-          
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/cn/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-                
-                -- cn
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/en/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
-    
         <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+          </div>
+        </section>
+        
 
-<section>
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#R" title="R" rel="3">R</a>
-    
-    
-    
-    <a href="/tags/#ggplot2" title="ggplot2" rel="1">ggplot2</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="2">Hexo-Theme-LiveMyLife</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/Keep-Going.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>Keep going. Everything you need will come to you at a perfect time.</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/snow55">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/snow55_XF">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../../undefined/hexo-image-insert/">
-      <li>hexo image insert</li>
-    </a>
-    
-    <a href="../../../R/Survival-curve/">
-      <li>Survival curve</li>
-    </a>
-    
-    <a href="../../../R/R-data-process/">
-      <li>R data process</li>
-    </a>
-    
-    <a href="../../../R/ggplot2-%E7%94%BB%E5%9B%BE%E6%8A%80%E5%B7%A7/">
-      <li>ggplot2 画图技巧</li>
-    </a>
-    
-    <a href="../../../en/Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-<h5><a href="/">FRIENDS</a></h5>
-<ul class="list-inline">
-  
-  <li><a href="https://cb11711211.github.io" target="_blank">wulilichao</a></li>
-  
-  <li><a href="https://www.yshawlon.cn/1.html#toc-heading-3" target="_blank">Make Hexo blog</a></li>
-  
-  <li><a href="https://v-vincen.life/en/Hexo-Theme-LiveMyLife" target="_blank">Hexo-Theme-LiveMyLife</a></li>
-  
-  <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
-  
-</ul>
-
-
+        
         <hr>
-    
-        <!-- Archives -->
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
 
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../10/">October 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../2020/04/">April 2020</a><span class="archive-list-count">2</span></li></ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<h5><a href="/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#R">
-      <li>R</li>
-    </a>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+          
+          <li>
+            <a href="https://cb11711211.github.io" target="_blank">wulilichao</a>
+          </li>
+          
+          <li>
+            <a href="https://www.yshawlon.cn/1.html#toc-heading-3" target="_blank">Make Hexo blog</a>
+          </li>
+          
+          <li>
+            <a href="https://v-vincen.life/en/Hexo-Theme-LiveMyLife" target="_blank">Hexo-Theme-LiveMyLife</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
